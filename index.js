@@ -1,0 +1,33 @@
+
+const display=document.getElementById("display");
+
+//function to append input to display
+function appendtodisplay(input){
+    display.value+=input;
+}
+function Clear(){
+    display.value="";
+}
+function Calculate(){
+    try{
+        //evaluates the expression
+        display.value=eval(display.value);
+    }
+    catch(error){
+        display.value='Error'
+    }
+}
+
+//event listener to get inputs from keyboard
+document.addEventListener("keydown", function(event) {
+    event.preventDefault(); 
+    if (/[\d+\-*/.=]/.test(event.key)) {
+        appendtodisplay(event.key);
+    } else if (event.key === "Enter") {
+        Calculate();
+    } else if (event.key === "Backspace") {
+        display.value = display.value.slice(0, -1);
+    } else if (event.key === "Escape") {
+        Clear();
+    }
+});
