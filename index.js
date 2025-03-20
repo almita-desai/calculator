@@ -4,6 +4,7 @@ const display=document.getElementById("display");
 //function to append input to display
 function appendtodisplay(input){
     display.value+=input;
+    scrollToEnd(); 
 }
 function Clear(){
     display.value="";
@@ -17,10 +18,19 @@ function Calculate(){
         display.value='Error'
     }
 }
+function scrollToEnd() {
+    display.scrollLeft = display.scrollWidth;
+}
 
 //event listener to get inputs from keyboard
 document.addEventListener("keydown", function(event) {
-    event.preventDefault(); 
+    if (/[\d+\-*/.=]/.test(event.key) || 
+        event.key === "Enter" || 
+        event.key === "Backspace" || 
+        event.key === "Escape") {
+        event.preventDefault();  
+    }
+
     if (/[\d+\-*/.=]/.test(event.key)) {
         appendtodisplay(event.key);
     } else if (event.key === "Enter") {
