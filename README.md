@@ -5,4 +5,6 @@ A basic calculator built using **HTML, CSS, and JavaScript**. It supports keyboa
 ## 🛠️ Technologies Used
 - HTML  
 - CSS  
-- JavaScript 
+- JavaScript
+
+[Try it out](https://almita-desai.github.io/calculator/)
